@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
+	<title>More</title>
+	<link rel="stylesheet" type="text/css" href="jquery.multiscroll.css" />
+	<link rel="stylesheet" type="text/css" href="examples.css" />
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script>
+	<![endif]-->
+		
+	<script src="http://www.lanrenzhijia.com/ajaxjs/1.8.3/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="vendors/jquery.easings.min.js"></script>
+
+	<script type="text/javascript" src="jquery.multiscroll.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#myContainer').multiscroll({
+            	sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE'],
+            	anchors: ['firstSection', 'second', 'third'],
+            	menu: '#menu',
+            	navigation: true,
+            	navigationTooltips: ['uno', 'dos', 'tres'],
+            	normalScrollElements: '#demo',
+            	loopBottom: true,
+            	loopTop: true,
+            	onLeave: function(index, nextIndex, direction){
+            		console.log("onLeave==> index: " + index +" nextIndex: " + nextIndex + " direction: " + direction );
+            	},
+            	afterLoad: function(anchorLink, index){
+					console.log("afterLoad==> anchorLink: " + anchorLink +" index: " + index);
+            	},
+            	afterRender: function(){
+            		console.log("finish rendering");
+            	}
+            });
+
+            $('#pepe').click(function(){
+            	$.fn.multiscroll.moveTo('third');
+            });
+		});
+    </script>
+
+	<style>
+		#pepe{
+			position:fixed;
+			top: 100px;
+			left: 50px;
+			z-index: 99999;
+		}
+	</style>
+
+</head>
+<body>
+
+<!--<div id="pepe">click</div>-->
+<ul id="menu">
+	<li data-menuanchor="firstSection"><a href="#firstSection">蝙蝠侠</a></li>
+	<li data-menuanchor="second"><a href="#second">雷神 </a></li>
+	<li data-menuanchor="third"><a href="#third">蚁人</a></li>
+</ul>
+
+<div id="myContainer">
+
+	<div class="ms-left">
+		<div class="ms-section" id="left1">
+			<a href="http://v.baidu.com/v?ct=301989888&s=25&ie=utf-8&word=蝙蝠侠" target="_blank"><img src="01300001169494130147127435372_950.jpg"></a>
+		</div>
+
+		<div class="ms-section" id="left2">
+			<a href="http://v.baidu.com/v?word=雷神&ct=301989888&rn=20&pn=0&db=0&s=0&fbl=800&ie=utf-8" target="_blank"><img src="../素材/雷神/24723669_1308031299_925.jpg" width="920" height="620"></a> 
+		</div>
+
+		<div class="ms-section" id="left3">
+			<a href="http://v.baidu.com/movie/120814.htm?&q=蚁人" target="_blank"><img src="../素材/蚁人/0.jpg" width="700"  height="1000"></a> 
+		</div>
+	</div>
+	
+	<div class="ms-right">
+		<div class="ms-section" id="right1">
+			<a href="http://v.baidu.com/v?ct=301989888&s=25&ie=utf-8&word=蝙蝠侠" target="_blank"><img src="../素材/蝙蝠侠/EC7Y233X86KF.jpg" width="820" height="720"></a>
+		</div>
+
+		<div class="ms-section" id="right2">
+			<a href="http://v.baidu.com/v?word=雷神&ct=301989888&rn=20&pn=0&db=0&s=0&fbl=800&ie=utf-8" target="_blank"><img src="5.jpg" width="1050" height="720"></a>
+		</div>
+
+		<div class="ms-section" id="right3">
+			<a href="http://v.baidu.com/movie/120814.htm?&q=蚁人" target="_blank"><img src="../素材/蚁人/1444443926Ji64.jpg" width="1000"  height="700"></a> 
+		</div>
+	</div>	
+</div>
+
+</body>
+</html>
